@@ -16,6 +16,7 @@ To start the app run `python app.py` in your terminal while inside the Faceblog 
 8. Profile Edits
 9. Settings Page
 10. Likes Systems
+11. Size in different screens(Media Queries)
 
 ---
 
