@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4" id="sbar">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="{{ url_for('profile1') }}" class="list-group-item {% if request.endpoint == 'profile1' %}active{% endif %}">Profile</a>
+                <a href="{{ url_for('list_conversations') }}" class="list-group-item {% if request.endpoint == 'list_conversations' %}active{% endif %}">Direct Messages (Coming Soon!)</a>
+                <a href="{{ url_for('myposts') }}" class="list-group-item {% if request.endpoint == 'myposts' %}active{% endif %}">Posts</a>
+                <a href="#" id="dark-mode-toggle" class="list-group-item">
+                    {% if request.cookies.get('dark-mode') == 'enabled' %}
+                        Switch to Light Mode
+                    {% else %}
+                        Switch to Dark Mode
+                    {% endif %}
+                </a>
+                <a href="{{ url_for('logout') }}" id="logu" class="list-group-item {% if request.endpoint == 'logout' %}active{% endif %}">Logout</a>
+                <!-- Add more links as needed -->
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="col-md-9">
+            {% block settings_content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

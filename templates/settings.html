@@ -1,0 +1,79 @@
+{% extends "settings_base.html" %}
+
+{% block settings_content %}
+<h2>Profile Settings</h2>
+<form method="POST" id="spg">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <img src="{{ url_for('static', filename='images/' + user.image_file) }}" alt="Profile Image" style="width:50px; height:50px; border-radius:50%; display: inline-block;">
+        <h3 for="username" style="display: inline-block;">{{ user.username }}</h3>
+    </div>
+    <div class="form-group">
+        <label for="bio">Current Bio:</label>
+        <br>
+        {% if user.bio != '' %}
+            <pre style="white-space: pre-wrap;">{{ user.bio }}</pre>
+        {% else %}
+            <p>None</p>
+        {% endif %}
+        <label for="bio">Current Social Links:</label>
+        <br>
+        {% if user.social_links != '' %}
+            <pre style="white-space: pre-wrap;">{{ user.social_links }}</pre>
+        {% else %}
+            <p>None</p>
+        {% endif %}
+        <p>Followers: {{ user.followers.count() }}</p>
+        <!-- Remove follow/unfollow buttons for the current user -->
+        <label for="followers" id="shF"><b>Show Followers</b></label>
+        <ul id="flist" style="display: none;" class="list-group">
+            {% for follower in user.followers %}
+                {% if follower != "" %}
+                    <li class="list-group-item" style="color: black;"><a href="{{ url_for('profile', username=follower.username) }}">{{ follower.username }}</a></li>
+                {% else %}
+                    <li class="list-group-item">None</li>
+                {% endif %}
+            {% endfor %}
+            
+        </ul>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="bio">Bio</label>
+        {{ form.bio(class="form-control") }}
+    </div>
+    <div class="form-group">
+        <label for="social_links">Social Media Links</label>
+        {{ form.social_links(class="form-control") }}
+    </div>
+    <div class="form-group">
+        <label for="profile_image">Profile Picture:</label>
+        <input type="file" name="profile_image" id="profile_image" accept="image/*" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<script>
+    document.getElementById('shF').addEventListener('click', function() {
+        var flist = document.getElementById('flist');
+        if (flist.style.display === 'none') {
+            this.textContent = 'Hide Followers';
+            this.style.fontWeight = 'bold';
+            flist.style.display = 'block';
+        } else {
+            this.textContent = 'Show Followers';
+            flist.style.display = 'none';
+        }
+    }); 
+</script>
+<style>
+</style>
+{% endblock %}

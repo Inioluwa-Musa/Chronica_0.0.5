@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    div {
+        margin-left: 10px;
+    }
+</style>
+    <h1 style="font-size: 70px;">Latest Posts</h1>
+    <div id="posts-container">
+        {% for post in posts %}
+            <article>
+                <img src="{{ url_for('static', filename='images/' + post.author.image_file) }}" alt="Profile Image" style="width:50px; height:50px; border-radius:50%;">
+                <a class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{% if post.author != current_user %} {{ url_for('profile', username=post.author.username) }} {% elif post.author == current_user %} {{ url_for('profile1', username=post.author.username) }} {% endif %}">{{ post.author.username }}</a>
+                <h2 style="text-align: left; font-weight: 600;">{{ post.title }}</h2>
+                <p><pre style="white-space: pre-warp;">{{ post.content[:100] }}...</pre></p>
+                <a href="{{ url_for('post', post_id=post.id) }}">Read more</a>
+                <p>Posted: {{ post.last_updated|time_ago }}</p>
+                <p>Likes: {{ post.likes.count() }}</p>
+                {% if post.author.username != current_user.username %}
+                    {% if current_user.is_authenticated %}
+                        {% if post.is_liked_by(current_user) %}
+                            <form action="{{ url_for('dislike_post', post_id=post.id) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-danger" style="color: black;">👎</button>
+                            </form>
+                        {% else %}
+                            <form action="{{ url_for('like_post', post_id=post.id) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-success" style="color: black;">👍</button>
+                            </form>
+                        {% endif %}
+                    {% else %}
+                        <p><a href="{{ url_for('login') }}">Log in</a> to like or dislike posts.</p>
+                    {% endif %}
+                {% endif %}
+            </article>
+        {% endfor %}
+    </div>
+    <p>{{a}}</p>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <script>
+        let counter = 1;
+        const quantity = 20;
+        let allPostsLoaded = false;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            window.onscroll = function(ev) {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !allPostsLoaded) {
+                    counter += 1;
+                    setTimeout(() => {
+                        fetch(`/load_posts/${counter}/${quantity}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.error) {
+                                console.error(data.error);
+                            } else {
+                                if (data.posts.length < quantity) {
+                                    allPostsLoaded = true;
+                                }
+                                data.posts.forEach(add_post);
+                            }
+                        })
+                        .catch(error => console.error('Error loading posts:', error));
+                    }, 1000); // Delay of 1 second
+                }
+            };
+        });
+
+        function add_post(post) {
+            const article = document.createElement('article');
+            article.innerHTML = `
+                <img src="/static/images/${post.author.image_file}" alt="Profile Image" style="width:50px; height:50px; border-radius:50%;">
+                <p style="display: inline-block; font-size: 26px;">${post.author.username}</p>
+                <h2 style="text-align: left; font-weight: 600;">${post.title}</h2>
+                <p>${post.content.substring(0, 100)}...</p>
+                <a href="/post/${post.id}">Read more</a>
+                <p>Likes: ${post.likes_count}</p>
+            `;
+            document.getElementById('posts-container').appendChild(article);
+        }
+    </script>
+{% endblock %}

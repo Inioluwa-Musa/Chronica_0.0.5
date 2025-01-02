@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+{% block title %}Create Chat Room{% endblock %}
+
+{% block content %}
+<h1>Create Chat Room</h1>
+<form method="POST"  class="ja">
+    <div>
+        <label for="name" class="la">ChatRoom Name:</label>
+        <input type="text" name="name" required class="form-control">
+        <label for="name" class="la">ChatRoom Description(optional):</label>
+        <input type="text" name="description" required class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+{% endblock %}

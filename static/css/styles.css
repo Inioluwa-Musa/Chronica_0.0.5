@@ -1,0 +1,500 @@
+body {
+    background-color: white;
+    max-width: 65%;
+    margin: auto;
+    border-radius: 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 90px rgba(0, 0, 0, 0.1);
+    padding-bottom: 15px;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+/* .mt-4 ul li div {
+    text-align: left;
+}
+
+.mt-4 ul li a {
+    display: flex;
+    align-self: end;
+} */
+
+pre {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.holder {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.message {
+    align-items: center;
+    margin-top: 3.5px;
+}
+
+.mt-4 ul li {
+    width: 95%;
+    border: 0.5px solid black;
+    border-radius: 8px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.mt-4 ul li div {
+    font-size: 25px;
+    margin-left: 18px;
+}
+
+.mt-4 ul li .btn {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.mt-4 .btn-success {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 5px;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+.mt-4 .joe {
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+header nav a {
+    color: white;
+    margin: 0 15px;
+    text-align: center;
+    text-decoration: none;
+    background-color: none;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+header nav a:hover, .jj button[type="submit"]:hover {
+    background-color: rgb(31, 31, 31);
+}
+
+header nav img {
+    display: flex;
+    align-self: flex-start;
+    margin-top: 10px;
+    /* float: left; */
+}
+
+.jj button[type="submit"] {
+    border: none; 
+    border-radius: 5px; 
+    padding: 4px; 
+    background: none; 
+    color: white;
+}
+
+/* header nav div ul li div:hover {
+    background-color:rgb(66, 66, 66);
+} */
+
+h1, h2 {
+    text-align: center;
+}
+
+form {
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+form input, form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+.ja div .la3 {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    margin-left: 40px;
+}
+
+.A1 {
+    background-color: #333; 
+    color: white; 
+    border: none; 
+    border-radius: 6px; 
+    padding: 3px;
+}
+
+.dark-mode {
+    background-color: #3d3c3c;
+    color: #fff;
+
+    form input[type="submit"] {
+        background-color: white;
+        color: black;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    form input[type="submit"]:hover {
+        background-color: rgb(209, 209, 209);
+    }
+
+    .mt-4 ul li {
+        border: 0.5px solid white;
+        border-radius: 8px;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    header {
+        background-color: #3d3c3c;
+    }
+
+    .A1 {
+        background-color: white;
+        color: black;
+    }
+
+    .dark-mode-toggle {
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 0px;
+        padding: 4px;
+    }
+
+    pre {
+        color: white;
+    }
+}
+.dark-mode-toggle {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+#nav-base a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+#sbar .row .col-md-3 .list-group {
+    margin-bottom: 20px;
+}
+
+
+
+#nav-base div {
+    text-align: center;
+}
+
+.list-group {
+    padding: 15px;
+    background-color: #f8f9fa; /* Light gray background slightly darker than white */
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.list-group .list-group-item {
+    border: none;
+    margin-bottom: 5px;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+.list-group .list-group-item:hover {
+    background-color: #e9ecef; /* Slightly darker hover effect */
+    color: #0056b3; /* Darker primary color */
+    text-decoration: none;
+}
+
+.list-group-item.active {
+    background-color: #007bff; /* Bootstrap primary color for active link */
+    color: white;
+    font-weight: bold;
+}
+
+.list-group-item.active:hover {
+    background-color: #007bff; /* Bootstrap primary color for active link */
+    color: white;
+    font-weight: bold;
+}
+
+.list-group-item#logu {
+    color: red;
+}
+
+ul div.form-group .list-item {
+    border: none;
+}
+
+/* Light mode styles (default) */
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: white;
+
+    .mt-4 .row .col-md-3 .list-group #dark-mode-toggle:hover {
+        background-color: #555;
+        color: white;
+    }
+}
+
+body.dark-mode .list-group {
+    background-color: #353535;
+    color: white;
+}
+
+body.dark-mode .list-group-item {
+    background-color: #444;
+    color: white;
+    margin-bottom: 0;
+}
+
+body.dark-mode .list-group-item:hover {
+    background-color: #555;
+    color: white;
+}
+
+body.dark-mode .list-group-item.active:hover {
+    background-color: #444;
+    color: white;
+}
+
+body.dark-mode header {
+    background-color: #3d3c3c;
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: #333;
+    color: white;
+}
+
+/* Other button styles */
+button {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mt-4 .row .col-md-3 .list-group #dark-mode-toggle:hover {
+    background-color: #e9ecef; /* Slightly darker hover effect */
+    color: #0056b3; /* Darker primary color */
+    text-decoration: none;
+}
+
+#dark-mode-toggle {
+    border-radius: 0px;
+}
+
+/* #nav-base a {
+    width: 40%;
+} */
+
+.chatroom-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.chatroom-details div {
+    margin-top: 8px;
+}
+
+/* Media Queries */
+
+/* For small mobile devices, 320px */
+@media (max-width: 320px) {
+    body {
+        padding: 10px;
+        font-size: 12px;
+    }
+    h1 {
+        font-size: 16px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+}
+
+/* For mobile devices, 360px */
+@media (max-width: 360px) {
+    body {
+        font-size: 14px;
+    }
+    .list-group {
+        padding: 10px;
+    }
+    header {
+        font-size: 14px;
+    }
+}
+
+/* For larger mobile devices, 375px */
+@media (max-width: 375px) {
+    body {
+        font-size: 15px;
+    }
+    header nav a {
+        font-size: 12px;
+        padding: 5px;
+    }
+}
+
+/* For small tablets or larger mobile devices, 390px */
+@media (max-width: 390px) {
+    h1 {
+        font-size: 18px;
+    }
+}
+
+/* For small tablets or medium-sized mobile devices, 425px */
+@media (max-width: 425px) {
+    h1 {
+        font-size: 20px;
+    }
+}
+
+/* For mid-range tablets, 600px */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+    .list-group-item {
+        font-size: 14px;
+    }
+}
+
+/* For larger tablets, 640px */
+@media (max-width: 640px) {
+    body {
+        font-size: 18px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+}
+
+/* For tablets, 712px */
+@media (max-width: 712px) {
+    body {
+        font-size: 29px;
+    }
+    .list-group {
+        padding: 12px;
+    }
+}
+
+/* For larger tablets or small desktops, 768px */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+}
+
+/* For medium-sized tablets, 800px */
+@media (max-width: 800px) {
+}
+
+/* For iPad Pro (portrait), 820px */
+@media (max-width: 820px) {
+    body {
+        font-size: 22px;
+    }
+    header nav a {
+        font-size: 16px;
+    }
+}
+
+/* For larger desktops, 1024px */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 28px;
+    }
+}
+
+/* For widescreen desktops, 1440px */
+@media (max-width: 1440px) {
+    h1 {
+        font-size: 30px;
+    }
+}
+
+/* For widescreen desktops, 1440px */
+/* @media (max-width: 1366px) {
+
+    h1 {
+        font-size: 30px;
+    }
+} */
+
+/* For ultra-wide monitors, 2560px */
+@media (max-width: 2560px) {
+    h1 {
+        font-size: 36px;
+    }
+    
+    header {
+        font-size: 18px;
+    }
+}
+
+.message-content {
+    white-space: pre-wrap; /* Ensures text wraps and preserves whitespace */
+    word-wrap: break-word; /* Breaks long words to fit within the container */
+    overflow-wrap: break-word; /* Ensures text wraps within the container */
+}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<style>
+    div {
+        margin-left: 10px;
+    }
+</style>
+<h1>Search Results</h1>
+<h2>Posts</h2>
+{% for post in posts %}
+    <div class="post">
+        <h3><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h3>
+        <p>{{ post.content }}</p>
+    </div>
+{% endfor %}
+<h2>Users</h2>
+{% for user in users %}
+    <div class="user">
+        {% if user != current_user %}
+            <h3><a href="{{ url_for('profile', username=user.username) }}">{{ user.username }}</a></h3>
+        {% else %}
+            <h3><a href="{{ url_for('profile1', username=user.username) }}">{{ user.username }}</a></h3>
+        {% endif %}
+    </div>
+{% endfor %}
+<h2>Chatrooms</h2>
+{% for chatroom in chatrooms %}
+    <div class="chatroom">
+        <h3>
+            <a href="{{ url_for('chatrooms', chatroom_id=chatroom.id) }}">
+                {{ chatroom.name }}
+            </a>
+        </h3>
+    </div>
+{% endfor %}
+<h2>Categories</h2>
+{% for category in categories %}
+    <div class="category">
+        <h3>
+            <a href="{{ url_for('category_posts', category_id=category.id) }}">
+                {{ category.name }}
+            </a>
+        </h3>
+    </div>
+{% endfor %}
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+{% endblock %}
